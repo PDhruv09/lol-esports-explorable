@@ -20,7 +20,7 @@ function generateNavigation() {
         { url: "Champion Picks/index.html", title: "Champions" },
         { url: "Gold Diff Impact/index.html", title: "Gold Advantage" },
         { url: "Game Length Analysis/index.html", title: "Game Length" },
-        { url: "Kill Participation/index.html", title: "Kill Participation" },
+        { url: "Kill Participantion/index.html", title: "Kill Participantion" },
     ];
 
     const nav = document.createElement("nav");
