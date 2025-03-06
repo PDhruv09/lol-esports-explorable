@@ -1,0 +1,54 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    text-align: center;
+    margin: 0;
+    padding-top: 60px;
+}
+
+/* Navigation */
+nav {
+    background-color: #282c34;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    text-align: center;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Sections */
+main {
+    padding: 20px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 15px 0;
+}
+
+ul li a {
+    color: #61dafb;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+}
