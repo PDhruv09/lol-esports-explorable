@@ -10,7 +10,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     generateNavigation();
 });
 
-document.addEventListener("DOMContentLoaded", () => {
+// ✅ Function to generate the navigation bar
+function generateNavigation() {
+    const rootPath = "/Dhruv_Patel_website/";
     const navLinks = [
         { url: "index.html", title: "Home" },
         { url: "Win Rate Visualization/index.html", title: "Win Rate" },
@@ -39,4 +41,4 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     document.body.prepend(nav);
-});
+};
