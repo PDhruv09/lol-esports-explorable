@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    d3.csv("lol-esports-explorable/assets/data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
+    d3.csv("../assets/data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
         let chartData = data.map(d => ({
             golddiffat25: +d.golddiffat25,
             result: +d.result
