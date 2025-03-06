@@ -1,7 +1,5 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 document.addEventListener("DOMContentLoaded", function () {
     d3.csv("../data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
-        // Extract game durations
         let gameDurations = data.map(d => +d.gamelength).filter(d => !isNaN(d));
 
         let width = 800, height = 400;
@@ -27,5 +25,5 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("width", d => x(d.x1) - x(d.x0) - 2)
             .attr("height", d => height - 50 - y(d.length))
             .attr("fill", "#3CB371");
-    });
+    }).catch(error => console.error("Error loading CSV:", error));
 });

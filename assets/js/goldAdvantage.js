@@ -1,7 +1,5 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 document.addEventListener("DOMContentLoaded", function () {
     d3.csv("../data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
-        // Filter data
         let chartData = data.map(d => ({
             golddiffat25: +d.golddiffat25,
             result: +d.result
@@ -16,6 +14,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let x = d3.scaleLinear().domain([-10000, 10000]).range([50, width - 50]);
         let y = d3.scaleLinear().domain([0, 1]).range([height - 50, 50]);
 
+        svg.append("g").attr("transform", `translate(0,${height - 50})`).call(d3.axisBottom(x));
+        svg.append("g").attr("transform", `translate(50,0)`).call(d3.axisLeft(y));
+
         svg.selectAll("circle")
             .data(chartData)
             .enter()
@@ -24,5 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("cy", d => y(d.result))
             .attr("r", 5)
             .attr("fill", d => d.golddiffat25 > 0 ? "#3CB371" : "#DC143C");
-    });
+
+    }).catch(error => console.error("Error loading CSV:", error));
 });

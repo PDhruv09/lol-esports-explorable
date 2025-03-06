@@ -1,7 +1,6 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 document.addEventListener("DOMContentLoaded", function () {
     d3.csv("../data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
-        // Filter complete matches
+        // Ensure only complete matches
         data = data.filter(d => d.datacompleteness === "complete");
 
         // Aggregate win rates by region
@@ -29,7 +28,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
         svg.append("g")
             .attr("transform", `translate(0,${height - 50})`)
-            .call(d3.axisBottom(x));
+            .call(d3.axisBottom(x))
+            .selectAll("text")  // Rotate text for better readability
+            .attr("transform", "rotate(-45)")
+            .style("text-anchor", "end");
 
         svg.append("g")
             .attr("transform", `translate(50,0)`)
@@ -45,5 +47,5 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("width", x.bandwidth())
             .attr("height", d => height - 50 - y(d.winRate))
             .attr("fill", "#3CB371");
-    });
+    }).catch(error => console.error("Error loading CSV:", error));
 });

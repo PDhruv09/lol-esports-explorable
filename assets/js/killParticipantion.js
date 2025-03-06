@@ -1,4 +1,3 @@
-import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 document.addEventListener("DOMContentLoaded", function () {
     d3.csv("../data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
         let chartData = data.map(d => ({
@@ -26,5 +25,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("cy", d => y(d.result))
             .attr("r", 5)
             .attr("fill", d => d.result ? "#3CB371" : "#DC143C");
-    });
+
+    }).catch(error => console.error("Error loading CSV:", error));
 });
