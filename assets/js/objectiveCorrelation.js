@@ -1,3 +1,4 @@
+import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7.9.0/+esm";
 document.addEventListener("DOMContentLoaded", function () {
     d3.csv("../data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
         // Prepare the dataset

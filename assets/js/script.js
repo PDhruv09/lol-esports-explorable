@@ -8,8 +8,6 @@ function $$(selector, context = document) {
 // ✅ Ensure scripts run only after the DOM is fully loaded
 document.addEventListener("DOMContentLoaded", async () => {
     generateNavigation();
-    displayLatestProjects().catch(error => console.error("Error loading latest projects:", error));
-    displayGitHubStats().catch(error => console.error("Error loading GitHub stats:", error)); // ✅ Load GitHub Stats
 });
 
 document.addEventListener("DOMContentLoaded", () => {
