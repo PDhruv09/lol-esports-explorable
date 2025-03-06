@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    d3.csv("../data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
+    d3.csv("/data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
         let chartData = data.map(d => ({
             killParticipation: (+d.killsat25 + +d.assistsat25) / Math.max(1, (+d.killsat25 + +d.assistsat25 + +d.deathsat25)),
             result: +d.result

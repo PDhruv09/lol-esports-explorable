@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
-    d3.csv("../data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
+    d3.csv("/data/2022_LoL_esports_match_data_from_OraclesElixir.csv").then(function (data) {
         let gameDurations = data.map(d => +d.gamelength).filter(d => !isNaN(d));
 
         let width = 800, height = 400;
