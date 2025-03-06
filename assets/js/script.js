@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 // ✅ Function to generate the navigation bar
 function generateNavigation() {
     const rootPath = "/lol-esports-explorable/";
-    const navLinks = [
+    const pages = [
         { url: "index.html", title: "Home" },
         { url: "Win Rate Visualization/index.html", title: "Win Rate" },
         { url: "Objective Impact/index.html", title: "Objectives" },
