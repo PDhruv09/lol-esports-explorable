@@ -12,16 +12,31 @@
 
     <header>
         <h1>Objective Control & Win Correlation</h1>
-        <p>Select an objective to analyze its impact on win rates.</p>
+        <p>This visualization examines how controlling key objectives impacts win rates in professional League of Legends matches.</p>
+    </header>
+
+    <section>
+        <h2>What is being visualized?</h2>
+        <p>This scatter plot illustrates the correlation between securing key objectives—such as First Dragon, First Baron, and First Tower—and match outcomes.</p>
+    </section>
+    
+    <section>
+        <h2>Why is it being visualized?</h2>
+        <p>Objectives play a crucial role in determining a team's chances of winning. Teams that secure early objectives gain strategic advantages, making it important to analyze how these objectives influence match results.</p>
+    </section>
+    
+    <section>
+        <h2>How is it being visualized?</h2>
+        <p>The visualization uses a scatter plot in D3.js, where each data point represents a match. Users can select different objectives from a dropdown menu to observe how controlling them impacts win rates.</p>
+    </section>
+
+    <main>
         <label for="objectiveSelect">Choose Objective:</label>
         <select id="objectiveSelect">
             <option value="firstdragon">First Dragon</option>
             <option value="firstbaron">First Baron</option>
             <option value="firsttower">First Tower</option>
         </select>
-    </header>
-
-    <main>
         <div id="objectiveChart"></div>
     </main>
 
