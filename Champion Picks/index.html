@@ -12,14 +12,21 @@
 
     <header>
         <h1>Champion Selection Impact</h1>
+        <p>This visualization helps analyze how champion selection impacts win rates in professional League of Legends esports.</p>
+        <p>Use the dropdown to compare specific champions or click "Show All" to see full data.</p>
     </header>
 
     <main>
+        <label for="championSelect">Select Champions:</label>
+        <select id="championSelect" multiple></select>
+        <button id="resetSelection">Show All</button>
+
         <div id="championChart"></div>
     </main>
+
     <script type="module" src="../script.js"></script>
     <script type="module" src="championSelection.js"></script>
-    <script type="module" src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 
 </body>
 </html>
