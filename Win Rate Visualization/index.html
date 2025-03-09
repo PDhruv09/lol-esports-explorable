@@ -12,14 +12,17 @@
 
     <header>
         <h1>Win Rate by Region</h1>
+        <p>Compare win rates across different leagues in different years.</p>
+        <label for="yearSelect">Filter by Year:</label>
+        <select id="yearSelect"></select>
     </header>
 
     <main>
         <div id="winRateChart"></div>
     </main>
+
     <script type="module" src="../script.js"></script>
     <script type="module" src="winRateRegion.js"></script>
-    <script type="module" src="https://d3js.org/d3.v7.min.js"></script>
-    
+    <script src="https://d3js.org/d3.v7.min.js"></script>
 </body>
 </html>

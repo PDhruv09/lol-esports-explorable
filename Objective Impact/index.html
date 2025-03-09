@@ -12,13 +12,22 @@
 
     <header>
         <h1>Objective Control & Win Correlation</h1>
+        <p>Select an objective to analyze its impact on win rates.</p>
+        <label for="objectiveSelect">Choose Objective:</label>
+        <select id="objectiveSelect">
+            <option value="firstdragon">First Dragon</option>
+            <option value="firstbaron">First Baron</option>
+            <option value="firsttower">First Tower</option>
+        </select>
     </header>
 
     <main>
         <div id="objectiveChart"></div>
     </main>
+
     <script type="module" src="../script.js"></script>
     <script type="module" src="objectiveCorrelation.js"></script>
-    <script type="module" src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
 </body>
 </html>

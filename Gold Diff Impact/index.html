@@ -12,13 +12,18 @@
 
     <header>
         <h1>Gold Differential vs. Win Probability</h1>
+        <p>Use the slider to filter by gold differential at 25 minutes.</p>
+        <label for="goldRange">Gold Differential:</label>
+        <input type="range" id="goldRange" min="-10000" max="10000" step="1000" value="0">
     </header>
 
     <main>
         <div id="goldAdvantageChart"></div>
     </main>
+
     <script type="module" src="../script.js"></script>
     <script type="module" src="goldAdvantage.js"></script>
-    <script type="module" src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
 </body>
 </html>
