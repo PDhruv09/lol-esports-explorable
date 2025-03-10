@@ -57,3 +57,14 @@ ul li a {
 ul li a:hover {
     text-decoration: underline;
 }
+
+.tooltip {
+    position: absolute;
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+    background: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    visibility: hidden;
+}
