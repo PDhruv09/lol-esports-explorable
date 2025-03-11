@@ -15,17 +15,17 @@
         <p>This visualization examines the distribution of game lengths in professional League of Legends matches.</p>
     </header>
 
-    <section>
+    <section  id="What">
         <h2>What is being visualized?</h2>
         <p>The histogram represents the frequency of matches lasting various lengths of time. The dataset consists of professional matches from 2022, showing how often games reach certain durations.</p>
     </section>
     
-    <section>
+    <section id="Why">
         <h2>Why is it being visualized?</h2>
         <p>Understanding game length trends helps teams and analysts develop strategies around early, mid, and late-game playstyles. If a league has shorter games on average, teams may prioritize aggressive early-game strategies.</p>
     </section>
     
-    <section>
+    <section id="How">
         <h2>How is it being visualized?</h2>
         <p>The visualization is a histogram created using D3.js. It bins game durations into intervals and displays how frequently each duration occurs, giving insight into typical match lengths in competitive play.</p>
     </section>
@@ -33,6 +33,81 @@
     <main>
         <div id="gameDurationChart"></div>
     </main>
+
+    <section id="Explanations">
+        <p>visualization is a histogram showing the distribution of game durations in minutes for League of Legends esports matches. Here’s what it illustrates:</p>
+        <ul>
+            <li>Key Observations:
+              <ul>
+                    <li>Shape of Distribution:
+                        <ul>
+                            <li>The histogram follows a normal-like distribution, peaking around 1,500 to 2,000 minutes.</li>
+                            <li>The majority of matches fall between 1,500 and 2,200 minutes, suggesting that most games last within this range.</li>
+                            <li>There are fewer games on the shorter and longer extremes, indicating that very short or very long games are rare.</li>
+                        </ul>
+                    </li>
+                    <li>Frequency of Matches:
+                        <ul>
+                            <li>The y-axis represents the number of matches that fall within each duration bin.</li>
+                            <li>The most frequent game duration range (mode) seems to be around 1,800-2,000 minutes, with over 35,000 matches occurring in this range.</li>
+                        </ul>
+                    </li>
+                    <li>Outliers and Long Games:
+                        <ul>
+                            <li>A small number of matches exceed 2,500 minutes, possibly indicating technical issues or unique in-game conditions leading to extended durations.</li>
+                        </ul>
+                    </li>
+                    <li>Legend & Readability Improvements:
+                        <ul>
+                            <li>The legend indicates that the green bars represent the Game Duration Distribution.</li>
+                            <li>The x-axis is labeled as "Game Duration (Minutes)", and the y-axis as "Frequency of Matches", making it clear what is being represented.</li>
+                        </ul>
+                    </li>
+                    <li>Possible Next Steps:
+                        <ul>
+                            <li>If game durations are unexpectedly high (such as values over 3,000 minutes), there might be data errors or misinterpreted units (e.g., seconds instead of minutes).</li>
+                            <li>It might be interesting to compute mean and median durations to compare central tendencies.</li>
+                            <li>If necessary, log transformation could help visualize extreme durations more effectively.</li>
+                        </ul>
+                    </li>
+              </ul>
+            </li>
+            <li>Conclusion:
+                <ul>
+                    <li>Most Matches Fall Within a Standard Range:
+                        <ul>
+                            <li>The majority of matches last between 1,500 and 2,200 minutes, indicating a consistent average game duration.</li>
+                            <li>This suggests that most competitive matches tend to follow a predictable length, likely influenced by game mechanics, objectives, and professional strategies.</li>
+                        </ul>
+                    </li>
+                    <li>Peak Game Duration:
+                        <ul>
+                            <li>The highest frequency of matches occurs around 1,800-2,000 minutes, meaning this is the most common game length for professional esports matches.</li>
+                        </ul>
+                    </li>
+                    <li>Very Short and Extremely Long Matches Are Rare:
+                        <ul>
+                            <li>Few games fall below 1,500 minutes, suggesting that most professional matches do not end too quickly, possibly due to structured team play and meta-game strategies.</li>
+                            <li>Similarly, only a small number of matches exceed 2,500 minutes, indicating that extended games are uncommon but possible due to factors like long stalemates, comeback attempts, or strategic delays.</li>
+                        </ul>
+                    </li>
+                    <li>Potential Data Issues or Anomalies:
+                        <ul>
+                            <li>The presence of some very long game durations (3,000+ minutes) raises concerns about possible data errors, unusual match conditions, or incorrect time units (e.g., seconds instead of minutes).</li>
+                            <li>Further data validation might be necessary to confirm the integrity of these extreme values.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+            <li>Final Takeaway:
+                <ul>
+                    <li>The histogram confirms that League of Legends esports matches generally follow a predictable duration, with most games clustering around 1,800-2,000 minutes.</li>
+                    <li>Unusually long games may require further investigation to determine if they represent anomalies, outliers, or specific gameplay dynamics.</li>
+                </ul>
+            </li>
+        </ul>          
+    </section>
+
     <script type="module" src="../script.js"></script>
     <script type="module" src="gameDuration.js"></script>
     <script type="module" src="https://d3js.org/d3.v7.min.js"></script>

@@ -36,17 +36,26 @@ body {
 }
 
 /* Sections */
+/* Main Chart Styling */
 main {
+    display: flex;
+    justify-content: center;
+    min-height: 400px; /* Ensures some height */
+    max-width: 800px; /* Prevent stretching on large screens */
+    margin: 40px auto; /* Centering only horizontally */
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 20px 20px 10px rgb(247 0 0 / 10%);
 }
 
 ul {
-    list-style: none;
-    padding: 0;
+    list-style: disc; /* Adds bullet points back */
+    padding-left: 20px; /* Adds indentation for the list */
+    margin: 0; /* Adjusts top/bottom margin if necessary */
 }
 
 ul li {
-    margin: 15px 0;
+    margin: 15px 0; /* Keeps the spacing between list items */
 }
 
 ul li a {
@@ -56,6 +65,29 @@ ul li a {
 
 ul li a:hover {
     text-decoration: underline;
+}
+
+/* Sections */
+section {
+    width: 80%; /* Reduce width for better spacing */
+    max-width: 800px; /* Prevent stretching on large screens */
+    margin: 40px auto; /* Centering only horizontally */
+    padding: 20px;
+    text-align: left; /* Ensure text aligns left */
+    border-radius: 10px;
+    box-shadow: 20px 20px 10px rgb(247 0 0 / 10%); /* Subtle shadow */
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    padding: 50px 20px;
+    background: linear-gradient(135deg, #7acfee, #00274d);
+    border-radius: 0 0 10px 10px;
+}
+
+h1, h2 {
+    font-family: 'Arial', sans-serif;
 }
 
 .tooltip {

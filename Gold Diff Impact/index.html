@@ -15,17 +15,17 @@
         <p>This visualization examines how gold advantage at a given time in the game influences win probability.</p>
     </header>
 
-    <section>
+    <section id="What">
         <h2>What is being visualized?</h2>
         <p>The chart represents the correlation between gold difference at the 25-minute mark and the probability of winning the match. It provides insights into whether a higher gold lead translates to a greater chance of victory.</p>
     </section>
     
-    <section>
+    <section id="Why">
         <h2>Why is it being visualized?</h2>
         <p>Gold differential is a key indicator of a team's strength in League of Legends. Understanding how different levels of gold advantage impact win probability helps teams evaluate strategic decisions regarding fights, objectives, and risk-taking.</p>
     </section>
     
-    <section>
+    <section id="How">
         <h2>How is it being visualized?</h2>
         <p>The visualization uses a scatter plot in D3.js, where each point represents a match. The x-axis shows the gold difference at 25 minutes, while the y-axis represents the win probability. The color of the points indicates whether the team ultimately won or lost.</p>
     </section>
@@ -35,6 +35,8 @@
         <input type="range" id="goldRange" min="-10000" max="10000" step="1000" value="0">
         <div id="goldAdvantageChart"></div>
     </main>
+    
+    <section id="Explanations"></section>
 
     <script type="module" src="../script.js"></script>
     <script type="module" src="goldAdvantage.js"></script>

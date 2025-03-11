@@ -15,17 +15,17 @@
         <p>This visualization examines how controlling key objectives impacts win rates in professional League of Legends matches.</p>
     </header>
 
-    <section>
+    <section id="What">
         <h2>What is being visualized?</h2>
         <p>This scatter plot illustrates the correlation between securing key objectives—such as First Dragon, First Baron, and First Tower—and match outcomes.</p>
     </section>
     
-    <section>
+    <section id="Why">
         <h2>Why is it being visualized?</h2>
         <p>Objectives play a crucial role in determining a team's chances of winning. Teams that secure early objectives gain strategic advantages, making it important to analyze how these objectives influence match results.</p>
     </section>
     
-    <section>
+    <section id="How">
         <h2>How is it being visualized?</h2>
         <p>The visualization uses a scatter plot in D3.js, where each data point represents a match. Users can select different objectives from a dropdown menu to observe how controlling them impacts win rates.</p>
     </section>
@@ -39,6 +39,8 @@
         </select>
         <div id="objectiveChart"></div>
     </main>
+
+    <section id="Explanations"></section>
 
     <script type="module" src="../script.js"></script>
     <script type="module" src="objectiveCorrelation.js"></script>

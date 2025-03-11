@@ -15,17 +15,17 @@
         <p>This visualization explores the relationship between player kill participation and match outcomes.</p>
     </header>
 
-    <section>
+    <section id="What">
         <h2>What is being visualized?</h2>
         <p>The scatter plot represents kill participation percentage for individual matches and how it correlates with win rate. Kill participation is calculated based on the percentage of total team kills a player was involved in.</p>
     </section>
     
-    <section>
+    <section id="Why">
         <h2>Why is it being visualized?</h2>
         <p>Kill participation is a key indicator of a player's contribution to their team’s performance. Analyzing this metric helps in understanding whether higher kill involvement translates to higher win rates.</p>
     </section>
     
-    <section>
+    <section id="How">
         <h2>How is it being visualized?</h2>
         <p>The visualization is a scatter plot created using D3.js. The x-axis represents kill participation percentage, while the y-axis represents the win rate. Data points are color-coded to indicate wins and losses, providing an interactive way to assess trends.</p>
     </section>
@@ -33,6 +33,7 @@
     <main>
         <div id="killParticipationChart"></div>
     </main>
+    <section id="Explanations"></section>
     <script type="module" src="../script.js"></script>
     <script type="module" src="killParticipantion.js"></script>
     <script type="module" src="https://d3js.org/d3.v7.min.js"></script>
