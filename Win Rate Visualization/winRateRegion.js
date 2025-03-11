@@ -8,17 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
         let years = Array.from(new Set(data.map(d => d.year))).sort();
         let leagues = Array.from(new Set(data.map(d => d.league))).sort();
 
-        // Populate the dropdown
-        let yearSelect = d3.select("#yearSelect");
-        years.forEach(year => {
-            yearSelect.append("option").text(year).attr("value", year);
-        });
-
-        console.log("Year filter applied successfully");
-
         // Set dimensions
-        let margin = { top: 50, right: 100, bottom: 80, left: 150 };
-        let width = 900 - margin.left - margin.right;
+        let margin = { top: 50, right: 150, bottom: 80, left: 150 };
+        let width = 1000 - margin.left - margin.right;
         let height = 600 - margin.top - margin.bottom;
 
         let svg = d3.select("#winRateChart")
@@ -29,8 +21,16 @@ document.addEventListener("DOMContentLoaded", function () {
             .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
         // Scales
-        let x = d3.scaleBand().domain(years).range([0, width]).padding(0.1);
-        let y = d3.scaleBand().domain(leagues).range([height, 0]).padding(0.1);
+        let x = d3.scaleBand()
+            .domain(years)
+            .range([0, width])
+            .padding(0.1);
+
+        let y = d3.scaleBand()
+            .domain(leagues)
+            .range([height, 0])
+            .padding(0.1);
+
         let colorScale = d3.scaleSequential(d3.interpolateBlues).domain([0, 1]);
 
         // Axes
@@ -62,35 +62,50 @@ document.addEventListener("DOMContentLoaded", function () {
             .style("border-radius", "5px")
             .style("display", "none");
 
-        function updateChart(selectedYear) {
-            svg.selectAll(".heatmapCell").remove();
+        // Process win rate data and handle missing values
+        let winRateMap = new Map();
+        years.forEach(year => {
+            leagues.forEach(league => {
+                winRateMap.set(`${year}-${league}`, 0);  // Default to 0% if no data
+            });
+        });
 
-            let filteredData = data.filter(d => d.year == selectedYear);
-            let winRates = d3.rollup(filteredData, v => d3.mean(v, d => +d.result), d => d.league);
-            let chartData = Array.from(winRates, ([league, winRate]) => ({ league, year: selectedYear, winRate }));
+        let winRates = d3.rollup(data, v => d3.mean(v, d => +d.result), d => d.year, d => d.league);
+        winRates.forEach((yearData, year) => {
+            yearData.forEach((winRate, league) => {
+                winRateMap.set(`${year}-${league}`, winRate || 0);  // Ensure missing data is 0%
+            });
+        });
 
-            svg.selectAll(".heatmapCell")
-                .data(chartData)
-                .enter()
-                .append("rect")
-                .attr("class", "heatmapCell")
-                .attr("x", d => x(d.year))
-                .attr("y", d => y(d.league))
-                .attr("width", x.bandwidth())
-                .attr("height", y.bandwidth())
-                .attr("fill", d => colorScale(d.winRate || 0))
-                .on("mouseover", (event, d) => {
-                    tooltip.style("display", "block")
-                        .html(`League: ${d.league} <br> Year: ${d.year} <br> Win Rate: ${d3.format(".2%")(d.winRate)}`)
-                        .style("left", `${event.pageX + 10}px`)
-                        .style("top", `${event.pageY - 20}px`);
-                })
-                .on("mouseout", () => {
-                    tooltip.style("display", "none");
-                });
+        // Convert map to array for plotting
+        let chartData = [];
+        winRateMap.forEach((winRate, key) => {
+            let [year, league] = key.split("-");
+            chartData.push({ year, league, winRate });
+        });
 
-            console.log("Heatmap updated successfully");
-        }
+        // Draw Heatmap
+        svg.selectAll(".heatmapCell")
+            .data(chartData)
+            .enter()
+            .append("rect")
+            .attr("class", "heatmapCell")
+            .attr("x", d => x(d.year))
+            .attr("y", d => y(d.league))
+            .attr("width", x.bandwidth())
+            .attr("height", y.bandwidth())
+            .attr("fill", d => colorScale(d.winRate))
+            .on("mouseover", (event, d) => {
+                tooltip.style("display", "block")
+                    .html(`League: ${d.league} <br> Year: ${d.year} <br> Win Rate: ${d3.format(".2%")(d.winRate)}`)
+                    .style("left", `${event.pageX + 10}px`)
+                    .style("top", `${event.pageY - 20}px`);
+            })
+            .on("mouseout", () => {
+                tooltip.style("display", "none");
+            });
+
+        console.log("Heatmap updated successfully");
 
         // Legend
         let legend = svg.append("g")
@@ -115,14 +130,6 @@ document.addEventListener("DOMContentLoaded", function () {
             .style("fill", "url(#legendGradient)");
 
         legend.append("g").attr("transform", "translate(15, 0)").call(legendAxis);
-
-        // Initialize with the first year
-        updateChart(years[0]);
-
-        // Event listener for dropdown
-        yearSelect.on("change", function () {
-            updateChart(this.value);
-        });
-
+        
     }).catch(error => console.error("Error loading CSV:", error));
 });
